@@ -1,19 +1,22 @@
 {
-	"name": "twitter-account-crawler",
-	"version": "0.0.0",
-	"description": "Randomly collect twitter users",
-	"license": "MIT",
-	"author": "Hoishin <hoishinxii@gmail.com>",
-	"main": "app.js",
-	"repository": "https://github.com/Hoishin/twitter-account-crawler",
-	"dependencies": {
-		"express": "^4.16.3"
-	},
-	"devDependencies": {
-		"@types/express": "^4.11.1",
-		"prettier": "^1.11.1",
-		"tslint": "^5.9.1",
-		"tslint-xo": "^0.6.0",
-		"typescript": "^2.7.2"
-	}
+  "name": "twitter-account-crawler",
+  "version": "0.0.0",
+  "description": "Randomly collect twitter users",
+  "license": "MIT",
+  "author": "Hoishin <hoishinxii@gmail.com>",
+  "files": [
+    "dist"
+  ],
+  "main": "app.js",
+  "repository": "https://github.com/Hoishin/twitter-account-crawler",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "prettier": "^1.11.1",
+    "tslint": "^5.9.1",
+    "tslint-xo": "^0.6.0",
+    "typescript": "^2.7.2"
+  }
 }
