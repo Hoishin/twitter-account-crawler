@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "esnext",
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"newLine": "lf",
+		"outDir": "dist",
+	},
+	"include": [
+		"**/*.ts",
+	],
+}
