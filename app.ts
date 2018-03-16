@@ -1,4 +1,7 @@
+import dotenv = require('dotenv');
 import express = require('express');
+
+dotenv.config();
 
 const host = process.env.HOST || 'localhost';
 const port = Number(process.env.PORT) || 3000;

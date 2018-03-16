@@ -10,9 +10,11 @@
   "main": "app.js",
   "repository": "https://github.com/Hoishin/twitter-account-crawler",
   "dependencies": {
+    "dotenv": "^5.0.1",
     "express": "^4.16.3"
   },
   "devDependencies": {
+    "@types/dotenv": "^4.0.2",
     "@types/express": "^4.11.1",
     "prettier": "1.11.1",
     "tslint": "^5.9.1",
