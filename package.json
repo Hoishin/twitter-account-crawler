@@ -10,8 +10,8 @@
   "main": "app.js",
   "repository": "https://github.com/Hoishin/twitter-account-crawler",
   "scripts": {
-    "tslint": "tslint $(find . | grep -v node_modules | grep \\.ts$) --fix",
-    "prettier": "prettier $(find . | grep -v node_modules | grep \\.ts$) --write"
+    "tslint": "tslint $(find src | grep -v node_modules | grep \\.ts$) --fix",
+    "prettier": "prettier $(find src | grep -v node_modules | grep \\.ts$) --write"
   },
   "dependencies": {
     "dotenv": "^5.0.1",
