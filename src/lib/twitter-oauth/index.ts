@@ -51,7 +51,7 @@ export default class OauthClient {
 	forAuthorizationHeader(
 		method: RestMethod,
 		baseUrl: string,
-		query: {[x: string]: string}
+		query: {[x: string]: string} = {}
 	) {
 		this.oauthParameters.oauth_nonce = this.nonce;
 		this.oauthParameters.oauth_timestamp = this.timestamp;
@@ -86,8 +86,8 @@ export default class OauthClient {
 		const headerParameterString =
 			queryString
 				.stringify(this.oauthParameters)
-				.replace('&', '", ')
-				.replace('=', '="') + '"';
+				.replace(/&/ig, '", ')
+				.replace(/=/ig, '="') + '"';
 
 		return 'OAuth ' + headerParameterString;
 	}
