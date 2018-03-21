@@ -53,56 +53,50 @@ export default class OauthClient {
 		baseUrl: string,
 		query: {[x: string]: string} = {}
 	) {
-		this.oauthParameters.oauth_nonce = this.nonce;
-		this.oauthParameters.oauth_timestamp = this.timestamp;
+		// Prepare oauth nonce and timestamp first
+		this.oauthParameters.oauth_nonce = this.nonce();
+		this.oauthParameters.oauth_timestamp = this.timestamp();
 
-		const parameterString = this.makeParameterString(query);
+		// To make signature, signature base string and signature key are required
+		// Base string is made from HTTP method, base url, query and oauth parameters except signature
+		const parameterString = queryString.stringify({
+			...query,
+			...this.oauthParameters,
+		});
 		const signatureBaseString = [
 			method.toUpperCase(),
 			strictUriEncode(baseUrl),
 			strictUriEncode(parameterString),
 		].join('&');
+		// Join consumer secret and token secret for signing key
 		const signingKey = [
 			strictUriEncode(this.consumerSecret),
 			strictUriEncode(this.tokenSecret),
 		].join('&');
 
-		const signature = this.hash(signatureBaseString, signingKey);
-
-		return {Authorization: this.makeHeaderString(signature)};
-	}
-
-	private makeParameterString(query: {[x: string]: string}) {
-		const parameterObject = {
-			...query,
-			...this.oauthParameters,
-		};
-
-		return queryString.stringify(parameterObject);
-	}
-
-	private makeHeaderString(signature: string) {
-		this.oauthParameters.oauth_signature = signature;
-		const headerParameterString =
-			queryString
-				.stringify(this.oauthParameters)
-				.replace(/&/ig, '", ')
-				.replace(/=/ig, '="') + '"';
-
-		return 'OAuth ' + headerParameterString;
-	}
-
-	private hash(signatureBaseString: string, signingKey: string) {
-		return createHmac('sha1', signingKey)
+		// Make signature with HMAC-SHA1 and convert to base64 string
+		const signature = createHmac('sha1', signingKey)
 			.update(signatureBaseString)
 			.digest('base64');
+
+		// Join those above for header string
+		this.oauthParameters.oauth_signature = signature;
+		const oauthKeys = Object.entries(this.oauthParameters).sort((a, b) =>
+			Number(a[0] > b[0])
+		);
+
+		return oauthKeys.reduce((prev, [key, value], index) => {
+			return `${prev}${strictUriEncode(key)}="${strictUriEncode(value)}"${
+				index < oauthKeys.length - 1 ? ', ' : ''
+			}`;
+		}, 'OAuth ');
 	}
 
-	private get timestamp() {
+	private timestamp() {
 		return String(Math.floor(Date.now() / 1000));
 	}
 
-	private get nonce() {
-		return uuidv4();
+	private nonce() {
+		return strictUriEncode(uuidv4());
 	}
 }
