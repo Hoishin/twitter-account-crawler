@@ -7,6 +7,9 @@
 		"noUnusedParameters": true,
 		"newLine": "lf",
 		"outDir": "dist",
+		"lib": [
+			"esnext"
+		]
 	},
 	"include": [
 		"src/**/*.ts",
