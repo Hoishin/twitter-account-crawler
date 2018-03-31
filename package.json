@@ -7,10 +7,10 @@
   "files": [
     "dist"
   ],
-  "main": "app.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/Hoishin/twitter-account-crawler",
   "scripts": {
-    "tslint": "tslint --fix $(find src -name *.ts)"
+    "lint": "tslint --format stylish --project ."
   },
   "dependencies": {
     "twitter-stream-api": "^0.5.2"

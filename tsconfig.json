@@ -1,15 +1,24 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
+		"outDir": "dist",
 		"target": "es2015",
-		"strict": true,
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"declaration": true,
+		"pretty": true,
+		"newLine": "lf",
+		"stripInternal": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"newLine": "lf",
-		"outDir": "dist",
-		"lib": [
-			"esnext"
-		],
+		"noFallthroughCasesInSwitch": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictPropertyInitialization": true,
+		"alwaysStrict": true,
+		"esModuleInterop": true,
 	},
 	"include": [
 		"src/**/*.ts",
