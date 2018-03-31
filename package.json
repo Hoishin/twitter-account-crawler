@@ -11,7 +11,8 @@
   "types": "dist",
   "repository": "https://github.com/Hoishin/twitter-account-crawler",
   "scripts": {
-    "lint": "tslint --format stylish --project ."
+    "lint": "tslint --format stylish --project .",
+    "prepublish": "tsc"
   },
   "dependencies": {
     "twitter-stream-api": "^0.5.2"
