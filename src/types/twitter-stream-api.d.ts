@@ -29,27 +29,16 @@ declare module 'twitter-stream-api' {
 
 		on(event: 'connection success', callback: (uri: string) => void): void;
 		on(event: 'connection aborted', callback: () => void): void;
-		on(
-			event: 'connection error network',
-			callback: (error: Error) => void
-		): void;
-		on(
-			event: 'connection error http',
-			callback: (statusCode: AbortCode) => void
-		): void;
-		on(
-			event: 'connection rate limit',
-			callback: (statusCode: 420) => void
-		): void;
+		on(event: 'connection error network', callback: (error: Error) => void): void;
+		on(event: 'connection error http', callback: (statusCode: AbortCode) => void): void;
+		on(event: 'connection rate limit', callback: (statusCode: 420) => void): void;
 		on(event: 'data keep-alive', callback: () => void): void;
 		on(event: 'data error', callback: (error: Error) => void): void;
 		on(
 			event: 'connection error unknown',
-			callback: (
-				msg: 'Illegal stream parameters provided' | number | Error
-			) => void
+			callback: (msg: 'Illegal stream parameters provided' | number | Error) => void
 		): void;
-		on(event: 'data', callback: (data: any) => void): void
+		on(event: 'data', callback: (data: any) => void): void;
 
 		stream(endpoint: Endpoint, parameters: StreamParameters): void;
 

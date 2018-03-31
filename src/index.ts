@@ -1,5 +1,5 @@
+import {EventEmitter} from 'events';
 import TwitterStreamApi = require('twitter-stream-api');
-import { EventEmitter } from 'events';
 
 interface OauthKeys {
 	consumer_key: string;
@@ -20,7 +20,6 @@ export default class TwiiterAccountCrawler extends EventEmitter {
 	}
 
 	start() {
-		// UNICODE 12353-12436
 		const track = 'あいうえおかきくけおさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん'.split('');
 		this.twitterStreamApi.stream('statuses/filter', {track});
 	}

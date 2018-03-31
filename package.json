@@ -10,16 +10,13 @@
   "main": "app.js",
   "repository": "https://github.com/Hoishin/twitter-account-crawler",
   "scripts": {
-    "format": "yarn prettier && yarn tslint",
-    "tslint": "tslint $(find src | grep -v node_modules | grep \\.ts$) --fix",
-    "prettier": "prettier $(find src | grep -v node_modules | grep \\.ts$) --write"
+    "tslint": "tslint --fix $(find src -name *.ts)"
   },
   "dependencies": {
     "twitter-stream-api": "^0.5.2"
   },
   "devDependencies": {
     "@types/node": "^9.6.1",
-    "prettier": "1.11.1",
     "tslint": "^5.9.1",
     "tslint-xo": "^0.7.0",
     "typescript": "^2.8.1"
