@@ -18,6 +18,7 @@
     "twitter-stream-api": "^0.5.2"
   },
   "devDependencies": {
+    "@types/node": "^9.6.1",
     "prettier": "1.11.1",
     "tslint": "^5.9.1",
     "tslint-xo": "^0.7.0",
