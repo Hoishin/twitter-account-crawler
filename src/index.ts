@@ -1,14 +1,14 @@
 import {EventEmitter} from 'events';
 import TwitterStreamApi = require('twitter-stream-api');
 
-interface OauthKeys {
+export interface OauthKeys {
 	consumer_key: string;
 	consumer_secret: string;
 	token: string;
 	token_secret: string;
 }
 
-export default class TwiiterAccountCrawler extends EventEmitter {
+export default class TwitterAccountCrawler extends EventEmitter {
 	private readonly twitterStreamApi: TwitterStreamApi;
 
 	constructor(keys: OauthKeys) {
@@ -28,3 +28,5 @@ export default class TwiiterAccountCrawler extends EventEmitter {
 		this.twitterStreamApi.close();
 	}
 }
+
+module.exports = TwitterAccountCrawler;

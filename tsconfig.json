@@ -19,6 +19,7 @@
 		"strictPropertyInitialization": true,
 		"alwaysStrict": true,
 		"esModuleInterop": true,
+		"sourceMap": true,
 	},
 	"include": [
 		"src/**/*.ts",
